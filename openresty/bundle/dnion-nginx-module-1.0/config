@@ -1,0 +1,57 @@
+#huwei asl
+ngx_addon_name=ngx_http_hwasl_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_hwasl_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_hwasl_module.c"
+
+##get bad server list module
+ngx_addon_name=ngx_http_gslb_check_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_gslb_check_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_gslb_check_module.c"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS	$ngx_addon_dir/ngx_http_gslb_check_module.h"
+
+#rpc_module
+ngx_addon_name=ngx_http_rpc_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_rpc_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_rpc_module.c"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/ngx_http_rpc_module.h"
+
+#bandwidth_limit
+ngx_addon_name=ngx_http_bandwidth_limit_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_bandwidth_limit_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_bandwidth_limit_module.c"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/ngx_http_bandwidth_limit_module.h"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_json.c"
+
+#args limit speed
+ngx_addon_name=ngx_http_args_ls_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_args_ls_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_args_ls_module.c"
+
+#aipai limit
+ngx_addon_name=ngx_http_apls_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_apls_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_apls_module.c"
+
+#modify dns
+ngx_addon_name=ngx_http_mdns_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_mdns_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_mdns_module.c"
+
+#Request status 
+ngx_addon_name=ngx_http_req_status_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_req_status_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_req_status_module.c"
+NGX_ADDON_DEPS="$NGX_ADDON_DEPS $ngx_addon_dir/ngx_http_req_status_module.h"
+
+#dnion variables
+ngx_addon_name=ngx_http_dnion_variables_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_dnion_variables_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_dnion_variables_module.c"
+
+#bandwidth
+CORE_LIBS="$CORE_LIBS /usr/local/bandwidth/lib/libbandwidth.so"
+
+#backupos
+ngx_addon_name=ngx_http_backupos_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_backupos_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_backupos_module.c"

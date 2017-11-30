@@ -1,0 +1,6 @@
+ngx_addon_name=ngx_http_url_gbk_module
+HTTP_MODULES="$HTTP_MODULES ngx_http_url_gbk_module"
+NGX_ADDON_SRCS="$NGX_ADDON_SRCS $ngx_addon_dir/ngx_http_url_gbk_module.c"
+ngx_http_url_libs="-liconv"
+
+CORE_LIBS="$CORE_LIBS $ngx_http_url_libs"
