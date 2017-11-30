@@ -4245,6 +4245,11 @@ ngx_http_core_listen(ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
             return NGX_CONF_ERROR;
 #endif
         }
+        //add by yyy
+        if (ngx_strcmp(value[n].data, "peek") == 0) {
+            lsopt.peek = 1;
+            continue;
+        }
 
         if (ngx_strcmp(value[n].data, "spdy") == 0) {
             ngx_conf_log_error(NGX_LOG_WARN, cf, 0,

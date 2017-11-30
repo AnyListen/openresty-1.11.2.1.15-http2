@@ -1204,6 +1204,8 @@ ngx_http_add_addresses(ngx_conf_t *cf, ngx_http_core_srv_conf_t *cscf,
 #if (NGX_HTTP_V2)
     ngx_uint_t             http2;
 #endif
+    //add by yyy
+    ngx_uint_t             peek;
 
     /*
      * we cannot compare whole sockaddr struct's as kernel
@@ -1239,6 +1241,7 @@ ngx_http_add_addresses(ngx_conf_t *cf, ngx_http_core_srv_conf_t *cscf,
 #if (NGX_HTTP_V2)
         http2 = lsopt->http2 || addr[i].opt.http2;
 #endif
+        peek = lsopt->peek || addr[i].opt.peek;
 
         if (lsopt->set) {
 
@@ -1273,6 +1276,7 @@ ngx_http_add_addresses(ngx_conf_t *cf, ngx_http_core_srv_conf_t *cscf,
 #if (NGX_HTTP_V2)
         addr[i].opt.http2 = http2;
 #endif
+        addr[i].opt.peek = peek;
 
         return NGX_OK;
     }
@@ -1810,7 +1814,7 @@ ngx_http_add_addrs(ngx_conf_t *cf, ngx_http_port_t *hport,
         addrs[i].conf.http2 = addr[i].opt.http2;
 #endif
         addrs[i].conf.proxy_protocol = addr[i].opt.proxy_protocol;
-
+        addrs[i].conf.peek = addr[i].opt.peek;
         if (addr[i].hash.buckets == NULL
             && (addr[i].wc_head == NULL
                 || addr[i].wc_head->hash.buckets == NULL)
@@ -1875,7 +1879,7 @@ ngx_http_add_addrs6(ngx_conf_t *cf, ngx_http_port_t *hport,
         addrs6[i].conf.http2 = addr[i].opt.http2;
 #endif
         addrs6[i].conf.proxy_protocol = addr[i].opt.proxy_protocol;
-
+        addrs6[i].conf.peek = addr[i].opt.peek;
         if (addr[i].hash.buckets == NULL
             && (addr[i].wc_head == NULL
                 || addr[i].wc_head->hash.buckets == NULL)

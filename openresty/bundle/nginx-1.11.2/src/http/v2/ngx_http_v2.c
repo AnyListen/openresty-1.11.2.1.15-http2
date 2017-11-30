@@ -216,9 +216,10 @@ ngx_http_v2_init(ngx_event_t *rev)
     ngx_log_debug0(NGX_LOG_DEBUG_HTTP, c->log, 0, "init http2 connection");
 
     c->log->action = "processing HTTP/2 connection";
-
-    if( !ngx_http_v2_check(rev) ){
-	return;
+    if (hc->addr_conf->peek){
+        if( !ngx_http_v2_check(rev) ){
+            return;
+        }
     }
 
     h2mcf = ngx_http_get_module_main_conf(hc->conf_ctx, ngx_http_v2_module);
